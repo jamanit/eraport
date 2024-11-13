@@ -1,0 +1,5 @@
+.bg-gradient-costume {
+    background-color: #58acec;
+    background-image: linear-gradient(180deg, #58acec 10%, #224abe 100%);
+    background-size: cover;
+}
