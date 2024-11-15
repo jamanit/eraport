@@ -11,6 +11,8 @@
 
     <title> <?= isset($title) ? $title : 'TITLE' ?> - <?= getenv('app.name') ?? 'APP NAME' ?></title>
 
+    <link rel="icon" href="<?= base_url('/') ?>images/logo-sekolah.jpg" type="image/x-icon">
+
     <!-- Custom fonts for this template-->
     <link href="<?= base_url('/') ?>sbadmin2/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link

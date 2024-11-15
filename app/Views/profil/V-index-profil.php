@@ -30,14 +30,6 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="nama">Nama</label>
-                                    <input type="text" name="nama" id="nama" value="<?= old('nama', $profil['nama']) ?>" placeholder="Masukkan Nama"
-                                        class="form-control <?= isset($errors['nama']) ? 'is-invalid' : '' ?>" readonly>
-                                    <div class=" invalid-feedback">
-                                        <?= $errors['nama'] ?? '' ?>
-                                    </div>
-                                </div>
-                                <div class="form-group">
                                     <label for="email">Email</label>
                                     <input type="text" name="email" id="email" value="<?= old('email', $profil['email']) ?>" placeholder="Masukkan Email"
                                         class="form-control <?= isset($errors['email']) ? 'is-invalid' : '' ?>" readonly>
@@ -51,6 +43,14 @@
                                         class="form-control <?= isset($errors['nama_peran']) ? 'is-invalid' : '' ?>" readonly>
                                     <div class=" invalid-feedback">
                                         <?= $errors['nama_peran'] ?? '' ?>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nama">Nama</label>
+                                    <input type="text" name="nama" id="nama" value="<?= old('nama', $profil['nama']) ?>" placeholder="Masukkan Nama"
+                                        class="form-control <?= isset($errors['nama']) ? 'is-invalid' : '' ?>">
+                                    <div class=" invalid-feedback">
+                                        <?= $errors['nama'] ?? '' ?>
                                     </div>
                                 </div>
                             </div>

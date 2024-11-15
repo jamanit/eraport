@@ -207,9 +207,9 @@
                             <td><?= $item['nama_mapel']; ?></td>
                             <td class="text-center"><?= $item['kkm']; ?></td>
                             <td class="text-center"><?= $pengetahuan_angka; ?></td>
-                            <td class="text-center"><?= $item['nilai_hasil_pengetahuan_huruf']; ?></td>
+                            <td><?= $item['nilai_hasil_pengetahuan_huruf']; ?></td>
                             <td class="text-center"><?= $praktik_angka; ?></td>
-                            <td class="text-center"><?= $item['nilai_hasil_praktik_huruf']; ?></td>
+                            <td><?= $item['nilai_hasil_praktik_huruf']; ?></td>
                             <td class="text-center"><?= $item['sikap_efektif_predikat']; ?></td>
                         </tr>
                     <?php endforeach; ?>

@@ -75,27 +75,27 @@ foreach ($menuCategories as $category => $patterns) {
                     <a class="collapse-item <?= $activeMenu['data-master'] && isActiveMenu($currentUri, ['tahun-ajaran']) ? 'active' : '' ?>" href="<?= base_url('tahun-ajaran') ?>">Tahun Ajaran</a>
                     <a class="collapse-item <?= $activeMenu['data-master'] && isActiveMenu($currentUri, ['kelas']) ? 'active' : '' ?>" href="<?= base_url('kelas') ?>">Kelas</a>
                     <a class="collapse-item <?= $activeMenu['data-master'] && isActiveMenu($currentUri, ['mata-pelajaran']) ? 'active' : '' ?>" href="<?= base_url('mata-pelajaran') ?>">Mata Pelajaran</a>
-                    <a class="collapse-item <?= $activeMenu['data-master'] && isActiveMenu($currentUri, ['jadwal-pelajaran']) ? 'active' : '' ?>" href="<?= base_url('jadwal-pelajaran') ?>">Jadwal Pelajaran</a>
                     <a class="collapse-item <?= $activeMenu['data-master'] && isActiveMenu($currentUri, ['siswa']) ? 'active' : '' ?>" href="<?= base_url('siswa') ?>">Siswa</a>
                     <a class="collapse-item <?= $activeMenu['data-master'] && isActiveMenu($currentUri, ['wali-orang-tua']) ? 'active' : '' ?>" href="<?= base_url('wali-orang-tua') ?>">Wali Orang Tua</a>
+                    <a class="collapse-item <?= $activeMenu['data-master'] && isActiveMenu($currentUri, ['jadwal-pelajaran']) ? 'active' : '' ?>" href="<?= base_url('jadwal-pelajaran') ?>">Jadwal Pelajaran</a>
                 </div>
             </div>
         </li>
     <?php } ?>
-
-    <!-- Nav Item - Nilai Siswa -->
-    <li class="nav-item <?= $activeMenu['nilai-siswa'] ? 'active' : '' ?>">
-        <a class="nav-link" href="<?= base_url('nilai-siswa') ?>">
-            <i class="fas fa-fw fa-marker"></i>
-            <span>Nilai Siswa</span>
-        </a>
-    </li>
 
     <!-- Nav Item - Absensi -->
     <li class="nav-item <?= $activeMenu['absensi'] ? 'active' : '' ?>">
         <a class="nav-link" href="<?= base_url('absensi') ?>">
             <i class="fas fa-fw fa-calendar-check"></i>
             <span>Absensi</span>
+        </a>
+    </li>
+
+    <!-- Nav Item - Nilai Siswa -->
+    <li class="nav-item <?= $activeMenu['nilai-siswa'] ? 'active' : '' ?>">
+        <a class="nav-link" href="<?= base_url('nilai-siswa') ?>">
+            <i class="fas fa-fw fa-marker"></i>
+            <span>Nilai Siswa</span>
         </a>
     </li>
 

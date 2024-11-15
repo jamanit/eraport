@@ -61,7 +61,7 @@
                                     <th colspan="5">Nilai Hasil Belajar</th>
                                 </tr>
                                 <tr>
-                                    <th colspan="2">Penegtahun</th>
+                                    <th colspan="2">Pengetahuan</th>
                                     <th colspan="2">Praktik</th>
                                     <th>Sikap</th>
                                 </tr>

@@ -144,7 +144,7 @@ class C_rapor_siswa extends Controller
 
     public function show($id_rapor_siswa)
     {
-        $data['title'] = 'Data Rapor Siswa';
+        $data['title'] = 'Ubah Data Rapor Siswa';
 
         $data['rapor_siswa'] = $this->M_rapor_siswa
             ->select(
