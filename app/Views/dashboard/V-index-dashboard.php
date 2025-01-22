@@ -1,3 +1,7 @@
+<?php
+$nisn_siswa = (session()->get('loggedUser')['nisn'] ?? '');
+?>
+
 <?= $this->extend('layouts/dashboard/main') ?>
 
 <?= $this->section('content') ?>
@@ -24,77 +28,114 @@
     <!-- Content Row -->
     <div class="row">
 
-        <div class="col-xl-3 col-md-6 mb-4">
-            <a href="<?= base_url('profil') ?>">
-                <div class="card border-left-primary shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                    Profil</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-user fa-2x text-gray-300"></i>
+        <?php if ($nisn_siswa == '') { ?>
+            <div class="col-xl-3 col-md-6 mb-4">
+                <a href="<?= base_url('profil') ?>">
+                    <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                        Profil</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-user fa-2x text-gray-300"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </a>
-        </div>
+                </a>
+            </div>
 
-        <div class="col-xl-3 col-md-6 mb-4">
-            <a href="<?= base_url('nilai-siswa') ?>">
-                <div class="card border-left-warning shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                    Nilai Siswa</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-marker fa-2x text-gray-300"></i>
+            <div class="col-xl-3 col-md-6 mb-4">
+                <a href="<?= base_url('nilai-siswa') ?>">
+                    <div class="card border-left-warning shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                        Nilai Siswa</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-marker fa-2x text-gray-300"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </a>
-        </div>
+                </a>
+            </div>
 
-        <div class="col-xl-3 col-md-6 mb-4">
-            <a href="<?= base_url('absensi') ?>">
-                <div class="card border-left-success shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                    Absensi</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+            <div class="col-xl-3 col-md-6 mb-4">
+                <a href="<?= base_url('absensi') ?>">
+                    <div class="card border-left-success shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                        Absensi</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </a>
-        </div>
+                </a>
+            </div>
 
-        <div class="col-xl-3 col-md-6 mb-4">
-            <a href="<?= base_url('rapor-siswa') ?>">
-                <div class="card border-left-secondary shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">
-                                    Rapor Siswa</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-book fa-2x text-gray-300"></i>
+            <div class="col-xl-3 col-md-6 mb-4">
+                <a href="<?= base_url('rapor-siswa') ?>">
+                    <div class="card border-left-secondary shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">
+                                        Rapor Siswa</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-book fa-2x text-gray-300"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </a>
-        </div>
+                </a>
+            </div>
+        <?php } else { ?>
+            <div class="col-xl-3 col-md-6 mb-4">
+                <a href="<?= base_url('profil-saya') ?>">
+                    <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                        Profil Saya</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-book fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-4">
+                <a href="<?= base_url('rapor-saya') ?>">
+                    <div class="card border-left-secondary shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">
+                                        Rapor Saya</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-book fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        <?php } ?>
 
     </div>
 

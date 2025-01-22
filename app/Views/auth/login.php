@@ -31,7 +31,7 @@
 
                     <form method="post" class="user" action="<?= site_url('login') ?>">
                         <div class="form-group">
-                            <input type="email" class="form-control form-control-user" name="email" id="email" value="<?= old('email') ?>" placeholder="Masukkan Email" required>
+                            <input type="text" class="form-control form-control-user" name="identifier" id="identifier" value="<?= old('identifier') ?>" placeholder="Masukkan Email/Username" required>
                         </div>
                         <div class="form-group">
                             <input type="password" class="form-control form-control-user" name="password" id="password" placeholder="Password" required>

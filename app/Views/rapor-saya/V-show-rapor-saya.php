@@ -1,132 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
+<?= $this->extend('layouts/dashboard/main') ?>
 
-<head>
+<?= $this->section('content') ?>
+<div class="container-fluid">
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800"><?= $title ?></h1>
+    </div>
 
-    <!-- Custom fonts for this template-->
-    <link href="<?= base_url('/') ?>sbadmin2/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <?php if (session()->getFlashdata('success') || session()->getFlashdata('error')): ?>
+        <div class="alert <?= session()->getFlashdata('success') ? 'alert-success' : 'alert-danger' ?> alert-dismissible fade show" role="alert">
+            <?= session()->getFlashdata('success') ?: session()->getFlashdata('error') ?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    <?php endif; ?>
 
-    <!-- Custom styles for this template-->
-    <link href="<?= base_url('/') ?>sbadmin2/css/sb-admin-2.min.css" rel="stylesheet">
-
-    <style>
-        /* Styling untuk kotak dengan border */
-        .bordered-box {
-            border: 1px solid #ccc;
-            /* Warna border */
-            padding: 10px;
-            /* Ruang di dalam kotak */
-            min-height: 150px;
-            /* Ukuran minimal tinggi kotak */
-            border-radius: 5px;
-            /* Sudut kotak sedikit melengkung */
-            font-family: inherit;
-            /* Meniru font dari halaman */
-            font-size: 14px;
-            /* Ukuran font yang sesuai */
-            overflow-y: auto;
-            /* Jika teks terlalu panjang, scroll muncul */
-        }
-
-        /* Memastikan kotak bisa lebih besar jika diperlukan */
-        .bordered-box[contenteditable="true"]:empty:before {
-            content: attr(data-placeholder);
-            color: #aaa;
-        }
-    </style>
-
-
-    <style>
-        /* Pengaturan untuk print halaman A4 */
-        @page {
-            size: A4;
-            margin: 0;
-        }
-
-        /* CSS untuk memastikan elemen berada di halaman A4 */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Nunito', sans-serif;
-            font-size: 12pt;
-            line-height: 1.5;
-            background-color: gray;
-        }
-
-        .page1 {
-            margin-left: auto;
-            margin-right: auto;
-            width: 210mm;
-            /* A4 width */
-            height: 297mm;
-            /* A4 height */
-            padding: 10mm;
-            box-sizing: border-box;
-            page-break-after: always;
-            background-color: #fff;
-            margin-top: 20px;
-            margin-bottom: 20px;
-        }
-
-        .page2 {
-            margin-left: auto;
-            margin-right: auto;
-            width: 210mm;
-            /* A4 width */
-            height: 297mm;
-            /* A4 height */
-            padding: 10mm;
-            box-sizing: border-box;
-            background-color: #fff;
-            margin-bottom: 20px;
-        }
-
-        /* Menghilangkan border dan margin saat print */
-        @media print {
-            body {
-                margin: 0;
-                padding: 0;
-            }
-
-            .page1 {
-                width: 210mm;
-                height: 297mm;
-                padding-top: 20mm;
-                padding-bottom: 20mm;
-                padding-left: 10px;
-                padding-right: 10px;
-                page-break-after: always;
-                box-sizing: border-box;
-            }
-
-            .page2 {
-                width: 210mm;
-                height: 297mm;
-                padding-top: 20mm;
-                padding-bottom: 20mm;
-                padding-left: 10px;
-                padding-right: 10px;
-                box-sizing: border-box;
-            }
-        }
-    </style>
-
-</head>
-
-<body>
-    <div class="ctr">
-        <div class="page1">
+    <div class="card shadow mb-4">
+        <div class="card-body">
             <div class="row mb-5">
-                <div class="col-6">
+                <div class="col-md-6">
                     <table>
                         <thead>
                             <tr>
@@ -144,7 +38,7 @@
                         </thead>
                     </table>
                 </div>
-                <div class="col-6">
+                <div class="col-md-6">
                     <table>
                         <thead>
                             <tr>
@@ -160,7 +54,7 @@
                 </div>
             </div>
 
-            <table class="table table-bordered small">
+            <table class="table table-bordered">
                 <thead class="text-center">
                     <tr>
                         <th rowspan="3">No.</th>
@@ -231,10 +125,12 @@
             </table>
 
         </div>
+    </div>
 
-        <div class="page2">
+    <div class="card shadow mb-4">
+        <div class="card-body">
             <div class="row mb-5">
-                <div class="col-6">
+                <div class="col-md-6">
                     <table>
                         <thead>
                             <tr>
@@ -252,7 +148,7 @@
                         </thead>
                     </table>
                 </div>
-                <div class="col-6">
+                <div class="col-md-6">
                     <table>
                         <thead>
                             <tr>
@@ -269,10 +165,10 @@
             </div>
 
             <div class="row">
-                <div class="col-6 mb-5">
+                <div class="col-md-6 mb-5">
                     <label for="" class="font-weight-bold">Kegiatan Ekstra Kurikuler</label>
                     <div class="table-responsive">
-                        <table class="table table-bordered small">
+                        <table class="table table-bordered">
                             <thead>
                                 <tr>
                                     <th>No</th>
@@ -306,10 +202,10 @@
                     </div>
                 </div>
 
-                <div class="col-6 mb-5">
+                <div class="col-md-6 mb-5">
                     <label for="" class="font-weight-bold">Kepribadian</label>
                     <div class="table-responsive">
-                        <table class="table table-bordered small">
+                        <table class="table table-bordered">
                             <thead>
                                 <tr>
                                     <th>No</th>
@@ -369,68 +265,58 @@
                     </table>
                 </div>
 
-                <div class="col-6 mb-5">
+                <div class="col-md-6 mb-5">
                     <div class="form-group">
                         <label for="catatan" class="font-weight-bold">Catatan Wali Kelas</label>
-                        <!-- Ganti textarea dengan div yang memiliki border -->
-                        <div class="bordered-box" contenteditable="true"><?= $rapor_siswa['catatan'] ?? '' ?></div>
+                        <textarea name="catatan" id="catatan" class="form-control"><?= $rapor_siswa['catatan'] ?? '' ?></textarea>
                     </div>
                 </div>
 
                 <?php if ($rapor_siswa['semester'] == 'Genap') { ?>
-                    <div class="col-6 mb-5">
-                        <div class="form-group">
-                            <label for="catatan" class="font-weight-bold">Keputusan:</label>
-                            <h6>Dengan memperhatikan hasil yang dicapai,</h6>
-                            <h6> Maka ditetapkan <strong><?= $rapor_siswa['hasil_keputusan'] ?></strong></h6>
-                        </div>
+                    <div class="col-md-6 mb-5">
+                        <form action="<?= base_url('rapor-siswa/save-keputusan') ?>" method="POST">
+                            <?= csrf_field() ?>
+                            <?php $errors = validation_errors(); ?>
+                            <input type="hidden" name="id_rapor_siswa" value="<?= $rapor_siswa['id_rapor_siswa'] ?? '' ?>">
+
+                            <div class="form-group">
+                                <label for="catatan" class="font-weight-bold">Keputusan:</label>
+                                <p>Dengan memperhatikan hasil yang dicapai, Maka ditetapkan</p>
+                                <select name="hasil_keputusan" id="hasil_keputusan" class="form-control">
+                                    <option value="">Pilih</option>
+                                    <option value="Naik Kelas" <?= $rapor_siswa['hasil_keputusan'] && $rapor_siswa['hasil_keputusan'] == 'Naik Kelas' ? 'selected' : '' ?>>Naik Kelas</option>
+                                    <option value="Tinggal Kelas" <?= $rapor_siswa['hasil_keputusan'] && $rapor_siswa['hasil_keputusan'] == 'Tinggal Kelas' ? 'selected' : '' ?>>Tinggal Kelas</option>
+                                </select>
+                            </div>
+
+                            <button class="btn btn-primary">Simpan</button>
+                        </form>
                     </div>
                 <?php } ?>
             </div>
 
-            <div class="row mt-5">
-                <div class="col-4 text-center">
-                    <p class="m-0">Mengetahui</p>
-                    <p class="m-0">Orang Tua/Wali</p>
-                    <p class="mt-5 mb-5"></p>
-                    <p class="m-0">......................................................</p>
-                    <hr class="mb-0 mt-0" style="width: 80%; border-top: 1px solid black;">
-                </div>
-                <div class="col-4 text-center">
-                    <p class="m-0">Kepala Sekolah</p>
-                    <p class="mt-5 mb-5"></p>
-                    <p class="m-0">......................................................</p>
-                    <hr class="mb-0 mt-0" style="width: 80%; border-top: 1px solid black;">
-                    <p class="m-0">NIP: ......................................................</p>
-                </div>
-                <div class="col-4 text-center">
-                    <p class="m-0">Wali Kelas</p>
-                    <p class="mt-5 mb-5"></p>
-                    <p class="m-0">......................................................</p>
-                    <hr class="mb-0 mt-0" style="width: 80%; border-top: 1px solid black;">
-                    <p class="m-0">NIP: ......................................................</p>
-                </div>
-            </div>
         </div>
     </div>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="<?= base_url('/') ?>sbadmin2/vendor/jquery/jquery.min.js"></script>
-    <script src="<?= base_url('/') ?>sbadmin2//bootstrap/js/bootstrap.bundle.min.js"></script>
+    <div class="d-flex">
+        <div class="form-group">
+            <a href="<?= base_url('rapor-saya') ?>" class="btn btn-secondary">Kembali</a>
+        </div>
+        <div class="form-group ml-3">
+            <a href="<?= base_url('rapor-saya/print/' . $rapor_siswa['id_rapor_siswa']) ?>" class="btn btn-secondary" target="_blank">Print Rapor Saya</a>
+        </div>
+    </div>
+</div>
+<?= $this->endSection() ?>
 
-    <!-- Core plugin JavaScript-->
-    <script src="<?= base_url('/') ?>sbadmin2/vendor/jquery-easing/jquery.easing.min.js"></script>
+<?= $this->section('style') ?>
+<?= $this->endSection() ?>
 
-    <!-- Custom scripts for all pages-->
-    <script src="<?= base_url('/') ?>sbadmin2/js/sb-admin-2.min.js"></script>
-
-    <script>
-        // Fungsi ini akan dipanggil saat halaman selesai dimuat
-        window.onload = function() {
-            // Memanggil fungsi print browser
-            window.print();
-        };
-    </script>
-</body>
-
-</html>
+<?= $this->section('script') ?>
+<script>
+    $(document).ready(function() {
+        var table = $('#dataTable').DataTable();
+        table.order([]).draw();
+    });
+</script>
+<?= $this->endSection() ?>

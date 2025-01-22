@@ -17,6 +17,7 @@ class M_siswa extends Model
         'nomor_telepon',
         'id_kelas',
         'id_tahun_ajaran',
+        'password',
         'created_at',
         'updated_at'
     ];

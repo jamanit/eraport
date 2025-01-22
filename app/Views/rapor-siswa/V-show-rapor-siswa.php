@@ -83,9 +83,13 @@
                     $total_akhir = 0; // Total Nilai Akhir
                     $jumlah_mapel = 0;
                     foreach ($nilai_siswa as $item):
-                        // Menjumlahkan nilai pengetahuan dan praktik
-                        $pengetahuan_angka = $item['nilai_hasil_pengetahuan_angka'];
-                        $praktik_angka = $item['nilai_hasil_praktik_angka'];
+                        // Menjumlahkan nilai pengetahuan dan praktik 
+                        $pengetahuan_angka = isset($item['nilai_hasil_pengetahuan_angka']) && $item['nilai_hasil_pengetahuan_angka'] !== ''
+                            ? $item['nilai_hasil_pengetahuan_angka']
+                            : '0';
+                        $praktik_angka = isset($item['nilai_hasil_praktik_angka']) && $item['nilai_hasil_praktik_angka'] !== ''
+                            ? $item['nilai_hasil_praktik_angka']
+                            : '0';
 
                         // Misalnya bobot pengetahuan 60% dan praktik 40% (atau sesuaikan)
                         $nilai_akhir = (0.6 * $pengetahuan_angka) + (0.4 * $praktik_angka);

@@ -61,9 +61,6 @@
                                         <?= $errors['tanggal_lahir'] ?? '' ?>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="alamat">Alamat</label>
                                     <input type="text" name="alamat" id="alamat" value="<?= old('alamat', $siswa['alamat']) ?>" placeholder="Masukkan Alamat"
@@ -72,6 +69,9 @@
                                         <?= $errors['alamat'] ?? '' ?>
                                     </div>
                                 </div>
+                            </div>
+
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="nomor_telepon">No. Telepon</label>
                                     <input type="text" name="nomor_telepon" id="nomor_telepon" value="<?= old('nomor_telepon', $siswa['nomor_telepon']) ?>" placeholder="Masukkan No. Telepon"
@@ -92,6 +92,22 @@
                                     </select>
                                     <div class="invalid-feedback">
                                         <?= $errors['id_kelas'] ?? '' ?>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" name="password" id="password" placeholder="Masukkan Password"
+                                        class="form-control <?= isset($errors['password']) ? 'is-invalid' : '' ?>">
+                                    <div class=" invalid-feedback">
+                                        <?= $errors['password'] ?? '' ?>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password_confirm">Konfirmasi Password</label>
+                                    <input type="password" name="password_confirm" id="password_confirm" placeholder="Konfirmasi Password"
+                                        class="form-control <?= isset($errors['password_confirm']) ? 'is-invalid' : '' ?>">
+                                    <div class=" invalid-feedback">
+                                        <?= $errors['password_confirm'] ?? '' ?>
                                     </div>
                                 </div>
                             </div>

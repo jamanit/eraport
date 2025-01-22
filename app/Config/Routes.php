@@ -127,3 +127,19 @@ $routes->group('rapor-siswa', ['filter' => 'auth'], function ($routes) {
 
     $routes->get('print/(:num)', 'C_rapor_siswa::print/$1');
 });
+
+$routes->group('rapor-saya', ['filter' => 'auth'], function ($routes) {
+    $routes->get('/', 'C_rapor_saya::index');
+    $routes->get('list/(:num)', 'C_rapor_saya::list/$1');
+    $routes->get('show/(:num)', 'C_rapor_saya::show/$1');
+    $routes->get('print/(:num)', 'C_rapor_saya::print/$1');
+});
+
+$routes->group('profil-saya', ['filter' => 'auth'], function ($routes) {
+    $routes->get('/', 'C_profil_saya::index');
+    $routes->get('create', 'C_profil_saya::create');
+    $routes->post('store', 'C_profil_saya::store');
+    $routes->get('edit/(:num)', 'C_profil_saya::edit/$1');
+    $routes->post('update/(:num)', 'C_profil_saya::update/$1');
+    $routes->get('delete/(:num)', 'C_profil_saya::delete/$1');
+});

@@ -1,5 +1,6 @@
 <?php
 $id_login = (session()->get('loggedUser')['id'] ?? 'ID');
+$nisn_siswa = (session()->get('loggedUser')['nisn'] ?? '');
 
 // Fungsi untuk memeriksa apakah URL saat ini mengandung salah satu dari pola yang diberikan
 function isActiveMenu($currentUri, $patterns)
@@ -18,6 +19,9 @@ $menuCategories = [
     'rapor-siswa' => ['rapor-siswa'],
     'nilai-siswa' => ['nilai-siswa'],
     'absensi' => ['absensi'],
+
+    'profil-saya' => ['profil-saya'],
+    'rapor-saya' => ['rapor-saya'],
     // Tambahkan kategori lain di sini sesuai kebutuhan
 ];
 
@@ -83,29 +87,45 @@ foreach ($menuCategories as $category => $patterns) {
         </li>
     <?php } ?>
 
-    <!-- Nav Item - Absensi -->
-    <li class="nav-item <?= $activeMenu['absensi'] ? 'active' : '' ?>">
-        <a class="nav-link" href="<?= base_url('absensi') ?>">
-            <i class="fas fa-fw fa-calendar-check"></i>
-            <span>Absensi</span>
-        </a>
-    </li>
+    <?php if ($nisn_siswa == '') { ?>
+        <!-- Nav Item - Absensi -->
+        <li class="nav-item <?= $activeMenu['absensi'] ? 'active' : '' ?>">
+            <a class="nav-link" href="<?= base_url('absensi') ?>">
+                <i class="fas fa-fw fa-calendar-check"></i>
+                <span>Absensi</span>
+            </a>
+        </li>
 
-    <!-- Nav Item - Nilai Siswa -->
-    <li class="nav-item <?= $activeMenu['nilai-siswa'] ? 'active' : '' ?>">
-        <a class="nav-link" href="<?= base_url('nilai-siswa') ?>">
-            <i class="fas fa-fw fa-marker"></i>
-            <span>Nilai Siswa</span>
-        </a>
-    </li>
+        <!-- Nav Item - Nilai Siswa -->
+        <li class="nav-item <?= $activeMenu['nilai-siswa'] ? 'active' : '' ?>">
+            <a class="nav-link" href="<?= base_url('nilai-siswa') ?>">
+                <i class="fas fa-fw fa-marker"></i>
+                <span>Nilai Siswa</span>
+            </a>
+        </li>
 
-    <!-- Nav Item - Nilai Siswa -->
-    <li class="nav-item <?= $activeMenu['rapor-siswa'] ? 'active' : '' ?>">
-        <a class="nav-link" href="<?= base_url('rapor-siswa') ?>">
-            <i class="fas fa-fw fa-book"></i>
-            <span>Rapor Siswa</span>
-        </a>
-    </li>
+        <!-- Nav Item - Nilai Siswa -->
+        <li class="nav-item <?= $activeMenu['rapor-siswa'] ? 'active' : '' ?>">
+            <a class="nav-link" href="<?= base_url('rapor-siswa') ?>">
+                <i class="fas fa-fw fa-book"></i>
+                <span>Rapor Siswa</span>
+            </a>
+        </li>
+
+    <?php } else { ?>
+        <li class="nav-item <?= $activeMenu['profil-saya'] ? 'active' : '' ?>">
+            <a class="nav-link" href="<?= base_url('profil-saya') ?>">
+                <i class="fas fa-fw fa-user"></i>
+                <span>Profil Saya</span>
+            </a>
+        </li>
+        <li class="nav-item <?= $activeMenu['rapor-saya'] ? 'active' : '' ?>">
+            <a class="nav-link" href="<?= base_url('rapor-saya') ?>">
+                <i class="fas fa-fw fa-book"></i>
+                <span>Rapor Saya</span>
+            </a>
+        </li>
+    <?php } ?>
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">

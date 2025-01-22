@@ -81,6 +81,7 @@ class C_siswa extends Controller
                 'alamat'        => $this->request->getPost('alamat'),
                 'nomor_telepon' => $this->request->getPost('nomor_telepon'),
                 'id_kelas'      => $this->request->getPost('id_kelas'),
+                'password'      => password_hash('123456', PASSWORD_DEFAULT),
             ]);
 
             $this->session->setFlashdata('success', 'Siswa berhasil ditambahkan.');
@@ -116,13 +117,15 @@ class C_siswa extends Controller
     public function update($id)
     {
         $rules = [
-            'nisn'          => 'required|is_unique[tb_siswa.nisn,id,' . $id . ']',
-            'nama_siswa'    => 'required',
-            'jenis_kelamin' => 'required',
-            'tanggal_lahir' => 'required',
-            'alamat'        => 'required',
-            'nomor_telepon' => 'required',
-            'id_kelas'      => 'required',
+            'nisn'             => 'required|is_unique[tb_siswa.nisn,id,' . $id . ']',
+            'nama_siswa'       => 'required',
+            'jenis_kelamin'    => 'required',
+            'tanggal_lahir'    => 'required',
+            'alamat'           => 'required',
+            'nomor_telepon'    => 'required',
+            'id_kelas'         => 'required',
+            'password'         => 'permit_empty|min_length[6]',
+            'password_confirm' => 'matches[password]',
         ];
 
         if (!$this->validate($rules)) {
@@ -130,6 +133,12 @@ class C_siswa extends Controller
         }
 
         try {
+            $siswaLama = $this->M_siswa->find($id);
+
+            $password = $this->request->getPost('password')
+                ? password_hash($this->request->getPost('password'), PASSWORD_DEFAULT)
+                :  $siswaLama['password'];
+
             $this->M_siswa->update($id, [
                 'nisn'          => $this->request->getPost('nisn'),
                 'nama_siswa'    => $this->request->getPost('nama_siswa'),
@@ -138,6 +147,7 @@ class C_siswa extends Controller
                 'alamat'        => $this->request->getPost('alamat'),
                 'nomor_telepon' => $this->request->getPost('nomor_telepon'),
                 'id_kelas'      => $this->request->getPost('id_kelas'),
+                'password'      => $password,
             ]);
 
             $this->session->setFlashdata('success', 'Siswa berhasil diperbarui.');
